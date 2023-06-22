@@ -18,4 +18,30 @@ class Brand extends Model
         // trả về dữ liệu lấy được
         return $brands;
     }
+
+    // Fucntion lưu dữ lệu lên Database
+    public function store() {
+        // query builder để thêm dữ liệu
+        DB::table('brand')->insert([
+           'name' => $this->name,
+            'country' => $this->country
+        ]);
+    }
+
+    public function edit() {
+        $brands = DB::table('brand')
+            ->where('id', $this->id)
+            ->get();
+        return $brands;
+    }
+
+    public function updateBrand() {
+        // Query builder để update
+        DB::table('brand')
+            ->where('id', $this->id)
+            ->update([
+                'name' => $this->name,
+                'country' => $this->country
+            ]);
+    }
 }

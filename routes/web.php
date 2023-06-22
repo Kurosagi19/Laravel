@@ -27,4 +27,12 @@ Route::get('/login', [\App\Http\Controllers\demoController::class, 'login'])->na
 Route::get('/register', [\App\Http\Controllers\demoController::class, 'register'])->name('register');
 
 // Route read (lấy dữ liệu từ database)
-ROute::get('/brand', [\App\Http\Controllers\BrandController::class, 'index'])->name('index');
+Route::get('/brand', [\App\Http\Controllers\BrandController::class, 'index'])->name('index');
+
+Route::get('/brand/create', [\App\Http\Controllers\BrandController::class, 'create'])->name('create');
+
+Route::post('/brand/create', [\App\Http\Controllers\BrandController::class, 'store'])->name('store');
+
+Route::get('/brand/{id}/edit', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit');
+
+Route::put('/brand/{id}/edit', [\App\Http\Controllers\BrandController::class, 'update'])->name('update');

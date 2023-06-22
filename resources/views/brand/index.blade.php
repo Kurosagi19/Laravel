@@ -8,6 +8,7 @@
     <title>Brand</title>
 </head>
 <body>
+<a href="{{ route('create') }}">Create</a>
     <table border="1px" cellpadding="0" cellspacing="0" width="100%">
         <tr>
             <th>ID</th>
@@ -23,6 +24,9 @@
                 </td>
                 <td>
                     {{ $brands -> country}}
+                </td>
+                <td>
+                    <a href="{{ route('edit') }}">Edit</a>
                 </td>
             </tr>
             @endforeach

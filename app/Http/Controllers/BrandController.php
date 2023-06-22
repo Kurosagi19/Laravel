@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Brand;
 use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
+use http\Env\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class BrandController extends Controller
 {
@@ -26,7 +28,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('brand.create');
     }
 
     /**
@@ -34,7 +36,15 @@ class BrandController extends Controller
      */
     public function store(StoreBrandRequest $request)
     {
-        //
+        // Tạo đối tượng của Model
+        $obj = new Brand();
+        // Lấy dữ liệu ở form và gán vào thuộc tính của đối tượng
+        $obj->name = $request->name;
+        $obj->country = $request->country;
+        // Gọi function ở Model để lấy dữ liệu
+        $obj->store();
+        // Quay lại view danh sách
+        return Redirect::route('brand.index');
     }
 
     /**
@@ -48,9 +58,14 @@ class BrandController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Brand $brand)
+    public function edit(Brand $brand, Request $request)
     {
-        //
+        // Tạo đối tượng của Model
+        $obj = new Brand();
+        // Lấy id của Brand cần sửa và gán vào thuộc tính của đối tượng
+        $obj->id = $request->id;
+
+        return view('brand.edit');
     }
 
     /**
@@ -58,7 +73,13 @@ class BrandController extends Controller
      */
     public function update(UpdateBrandRequest $request, Brand $brand)
     {
-        //
+        $obj = new Brand();
+        // Lấy dữ liệu
+        $obj->id = $request->id;
+        $obj->name = $request->name;
+        $obj->country = $request->country;
+        // Gọi function update trong Model
+
     }
 
     /**

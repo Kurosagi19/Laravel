@@ -4,15 +4,14 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreBrandRequest extends FormRequest
+class UpdateBrand2Request extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
     public function authorize(): bool
     {
-        // Đã chỉnh sửa
-        return true;
+        return false;
     }
 
     /**
