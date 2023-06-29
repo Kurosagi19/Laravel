@@ -28,17 +28,21 @@ Route::get('/register', [\App\Http\Controllers\demoController::class, 'register'
 
 Route::prefix('/brand')->group(function(){
     // Route read (lấy dữ liệu từ database)
-    Route::get('/brand', [\App\Http\Controllers\BrandController::class, 'index'])->name('index');
+    Route::get('/', [\App\Http\Controllers\BrandController::class, 'index'])->name('index');
 // Route hiển thị form thêm dữ liệu lên database
-    Route::get('/brand/create', [\App\Http\Controllers\BrandController::class, 'create'])->name('create');
+    Route::get('/create', [\App\Http\Controllers\BrandController::class, 'create'])->name('create');
 // Route đẩy dữ liệu lên database
-    Route::post('/brand/create', [\App\Http\Controllers\BrandController::class, 'store'])->name('store');
+    Route::post('/create', [\App\Http\Controllers\BrandController::class, 'store'])->name('store');
 // Route lấy dữ liệu từ database về form edit
-    Route::get('/brand/{id}/edit', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit');
+    Route::get('/{id}/edit', [\App\Http\Controllers\BrandController::class, 'edit'])->name('edit');
 // Route update dữ liệu lên database
-    Route::put('/brand/{id}/edit', [\App\Http\Controllers\BrandController::class, 'update'])->name('update');
+    Route::put('/{id}/edit', [\App\Http\Controllers\BrandController::class, 'update'])->name('update');
 });
 
 Route::prefix('/products')->group(function(){
-
+    Route::get('/', [\App\Http\Controllers\ProductsController::class, 'index'])->name('index');
+    Route::get('/create', [\App\Http\Controllers\ProductsController::class, 'create'])->name('create');
+    Route::post('/create', [\App\Http\Controllers\ProductsController::class, 'store'])->name('store');
+    Route::get('/{id}/edit', [\App\Http\Controllers\ProductsController::class, 'edit'])->name('edit');
+    Route::put('/{id}/edit', [\App\Http\Controllers\ProductsController::class, 'update'])->name('update');
 });

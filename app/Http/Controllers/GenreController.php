@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Products;
-use App\Http\Requests\StoreProductsRequest;
-use App\Http\Requests\UpdateProductsRequest;
+use App\Models\Genre;
+use App\Http\Requests\StoreGenreRequest;
+use App\Http\Requests\UpdateGenreRequest;
 
-class ProductsController extends Controller
+class GenreController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('products.index');
+        //
     }
 
     /**
@@ -21,13 +21,13 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductsRequest $request)
+    public function store(StoreGenreRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class ProductsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Products $products)
+    public function show(Genre $genre)
     {
         //
     }
@@ -43,7 +43,7 @@ class ProductsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Products $products)
+    public function edit(Genre $genre)
     {
         //
     }
@@ -51,7 +51,7 @@ class ProductsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateProductsRequest $request, Products $products)
+    public function update(UpdateGenreRequest $request, Genre $genre)
     {
         //
     }
@@ -59,7 +59,7 @@ class ProductsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Products $products)
+    public function destroy(Genre $genre)
     {
         //
     }
